@@ -17,4 +17,12 @@ export class PostItemComponent {
       votes: 1,
     };
   }
+
+  upvote(post: Post): void {
+    post.votes++;
+  }
+
+  downvote(post: Post): void {
+    post.votes--;
+  }
 }
