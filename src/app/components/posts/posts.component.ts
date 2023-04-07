@@ -16,4 +16,8 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.posts = this.postService.getPosts();
   }
+
+  hidePost(post: Post): void {
+    this.posts = this.posts.filter((p) => p.id !== post.id);
+  }
 }

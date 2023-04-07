@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Post } from 'src/app/models/post';
 
 @Component({
@@ -8,6 +8,7 @@ import { Post } from 'src/app/models/post';
 })
 export class PostItemComponent {
   @Input() post: Post;
+  @Output() hidePost: EventEmitter<Post> = new EventEmitter();
 
   constructor() {
     this.post = {
@@ -24,5 +25,9 @@ export class PostItemComponent {
 
   downvote(post: Post): void {
     post.votes--;
+  }
+
+  hide(post: Post): void {
+    this.hidePost.emit(post);
   }
 }
