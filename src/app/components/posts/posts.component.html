@@ -1,6 +1,11 @@
 <h1>{{ title }}</h1>
-<app-post-item
-  *ngFor="let post of posts"
-  [post]="post"
-  (hidePost)="hidePost($event)"
-></app-post-item>
+<div class="row">
+  <div class="col-8">
+    <app-post-item
+      *ngFor="let post of posts"
+      [post]="post"
+      (hidePost)="hidePost($event)"
+    ></app-post-item>
+  </div>
+  <app-post-form class="col" (addPost)="addPost($event)"></app-post-form>
+</div>

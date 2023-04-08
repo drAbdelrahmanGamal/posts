@@ -22,6 +22,15 @@ export class PostsComponent implements OnInit {
     });
   }
 
+  addPost(post: Post): void {
+    this.posts.unshift({
+      id: this.posts.length,
+      title: post.title,
+      body: post.body,
+      votes: post.votes,
+    });
+  }
+
   hidePost(post: Post): void {
     this.posts = this.posts.filter((p) => p.id !== post.id);
   }
